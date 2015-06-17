@@ -1,6 +1,12 @@
 // store command name from process.argv
 var commandName = process.argv[2];
 
+// check for provided option
+var option = process.argv[process.argv.length - 1];
+if (option && option.indexOf('--') === -1) {
+	option = undefined;
+}
+
 // print working directory
 if (commandName === 'pwd') {
 	var PWD = require('./pwd');
@@ -10,7 +16,7 @@ if (commandName === 'pwd') {
 else if (commandName === 'ls') {
 	var LS = require('./ls');
 	var path = process.env.PWD;
-	LS(path);
+	LS(path, option);
 }
 
 else if (commandName === 'mkdir') {
