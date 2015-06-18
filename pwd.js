@@ -1,5 +1,5 @@
-var printPWD = function(process) {
-	console.log(process.env.PWD);
+var printPWD = function(process, callback) {
+	callback(process.env.PWD);
 };
 
 module.exports = printPWD;
